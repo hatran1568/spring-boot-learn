@@ -12,27 +12,27 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
-    @RequestMapping("/depts")
+    @GetMapping("/depts")
     public List<Department> getDepts(){
         return departmentService.getDepts();
     }
 
-    @RequestMapping(value = "/depts", method = RequestMethod.POST)
+    @PostMapping("/depts")
     public void addDept(@RequestBody Department dept){
         departmentService.addDept(dept);
     }
 
-    @RequestMapping(value = "/depts/{id}", method = RequestMethod.GET)
+    @GetMapping("/depts/{id}")
     public Department getOneDept(@PathVariable Integer id){
         return departmentService.getOneDept(id);
     }
 
-    @RequestMapping(value = "/depts/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("/depts/{id}")
     public void deleteDept(@PathVariable Integer id){
         departmentService.deleteDept(id);
     }
 
-    @RequestMapping(value = "/depts/{id}", method = RequestMethod.PUT)
+    @PutMapping("/depts/{id}")
     public void updateDept(@PathVariable Integer id, @RequestBody Department dept){
         departmentService.updateDept(id, dept);
     }

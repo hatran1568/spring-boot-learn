@@ -1,27 +1,38 @@
 package com.example.demospringweb.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Department {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
 
     private String name;
+    private String foundingYear;
+
+//    @OneToMany(mappedBy = "dept")
+//    private List<Student> students;
 
     public Department() {
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
+    }
+
+    public String getFoundingYear() {
+        return foundingYear;
+    }
+
+    public void setFoundingYear(String foundingYear) {
+        this.foundingYear = foundingYear;
     }
 
     public String getName() {

@@ -4,24 +4,31 @@ import javax.persistence.*;
 
 @Entity
 public class Student {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String name;
+    private Boolean gender;
+    private String phone;
 
     @ManyToOne
+    @JoinColumn(name = "dept_id", nullable = false, updatable = false)
     private Department dept;
 
     public Student() {
     }
 
-    public Student(Integer id, String name, Department dept) {
+    public Student(Integer id, String name, Boolean gender, String phone, Department dept) {
         this.id = id;
         this.name = name;
+        this.gender = gender;
+        this.phone = phone;
         this.dept = dept;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -43,5 +50,21 @@ public class Student {
 
     public void setDept(Department dept) {
         this.dept = dept;
+    }
+
+    public Boolean getGender() {
+        return gender;
+    }
+
+    public void setGender(Boolean gender) {
+        this.gender = gender;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

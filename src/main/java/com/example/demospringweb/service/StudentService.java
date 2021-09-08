@@ -1,6 +1,7 @@
 package com.example.demospringweb.service;
 
 import com.example.demospringweb.model.Student;
+import com.example.demospringweb.repository.DepartmentRepository;
 import com.example.demospringweb.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +17,15 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
+    @Autowired
+    private DepartmentRepository departmentRepository;
 
     public List<Student> getStudents(){
         return studentRepository.findAll();
     }
 
     public void addStudent(Student s){
+
         studentRepository.save(s);
 
     }
