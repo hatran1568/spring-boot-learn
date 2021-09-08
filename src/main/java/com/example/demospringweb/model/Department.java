@@ -7,14 +7,10 @@ import java.util.List;
 public class Department {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
     private String name;
     private String foundingYear;
-
-//    @OneToMany(mappedBy = "dept")
-//    private List<Student> students;
 
     public Department() {
     }

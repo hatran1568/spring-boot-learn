@@ -14,7 +14,7 @@ public class Student {
     private String phone;
 
     @ManyToOne
-    @JoinColumn(name = "dept_id", nullable = false, updatable = false)
+    @JoinColumn(name = "dept_id", nullable = false)
     private Department dept;
 
     public Student() {

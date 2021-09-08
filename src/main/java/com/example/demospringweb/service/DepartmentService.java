@@ -16,19 +16,20 @@ public class DepartmentService {
         return departmentRepository.findAll();
     }
 
-    public void addDept(Department dept){
+    public void add(Department dept){
         departmentRepository.save(dept);
     }
 
-    public Department getOneDept(Integer id){
-        return departmentRepository.findById(id).get();
+    public Department getById(String id){
+        return departmentRepository.getById(id);
     }
 
-    public void deleteDept(Integer id){
-        departmentRepository.deleteById(id);
+    public void deleteById(String id){
+        Department d = departmentRepository.getById(id);
+        departmentRepository.delete(d);
     }
 
-    public void updateDept(Integer id, Department dept){
+    public void updateById(String id, Department dept){
         departmentRepository.save(dept);
     }
 }

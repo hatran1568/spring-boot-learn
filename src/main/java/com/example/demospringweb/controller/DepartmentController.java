@@ -17,23 +17,25 @@ public class DepartmentController {
         return departmentService.getDepts();
     }
 
+    //Pass parameter with post request in json format using @RequestBody
     @PostMapping("/depts")
-    public void addDept(@RequestBody Department dept){
-        departmentService.addDept(dept);
+    public void add(@RequestBody Department dept){
+        departmentService.add(dept);
     }
 
+    //Pass parameter
     @GetMapping("/depts/{id}")
-    public Department getOneDept(@PathVariable Integer id){
-        return departmentService.getOneDept(id);
+    public Department getById(@PathVariable String id){
+        return departmentService.getById(id);
     }
 
     @DeleteMapping("/depts/{id}")
-    public void deleteDept(@PathVariable Integer id){
-        departmentService.deleteDept(id);
+    public void deleteById(@PathVariable String id){
+        departmentService.deleteById(id);
     }
 
     @PutMapping("/depts/{id}")
-    public void updateDept(@PathVariable Integer id, @RequestBody Department dept){
-        departmentService.updateDept(id, dept);
+    public void updateDept(@PathVariable String id, @RequestBody Department dept){
+        departmentService.updateById(id, dept);
     }
 }

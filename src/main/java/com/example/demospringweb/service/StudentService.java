@@ -24,21 +24,21 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
-    public void addStudent(Student s){
-
+    public void add(Student s){
         studentRepository.save(s);
-
     }
 
-    public Student getAStudent(Integer id){
+    public Student getById(Integer id){
         return studentRepository.findById(id).get();
     }
 
-    public void deleteStudent(Integer id){
+    public void deleteById(Integer id){
         studentRepository.deleteById(id);
     }
 
-    public void updateStudent(Integer id, Student s){
-        studentRepository.save(s);
+    public void updateById(Integer id, Student s){
+        Student updatedStudent = studentRepository.getById(id);
+        updatedStudent.setDept(s.getDept());
+        studentRepository.save(updatedStudent);
     }
 }
